@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="03/31/2021 13:15:35" ReportInfo.Modified="04/01/2021 10:16:54" ReportInfo.CreatorVersion="2021.2.0.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+    
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <OracleDataConnection Name="LIMS" ConnectionString="rijcmlqSd+jr55z0WGX/8xfqMfP95Ai9FQAU03F+onRebtbLXZLsEKzSPvlyyPsKmAIWB/Ogd7lx23NmeSgV9Jrd0hr8g==">
+      <TableDataSource Name="VGSM_CRYSTAL_TEST_CHANPIN" Alias="CRYSTAL_TEST_CHANPIN" DataType="System.Int32" Enabled="true" TableName="VGSM.&quot;CRYSTAL_TEST_CHANPIN&quot;">
+        <Column Name="ANALYSIS_TYPE" DataType="System.String"/>
+        <Column Name="ANALYSIS_TYPE_EN" DataType="System.String"/>
+        <Column Name="ANALYSIS_TYPE_ORDER" DataType="System.Decimal"/>
+        <Column Name="BAOGAO_DATE" DataType="System.String"/>
+        <Column Name="BAOZHUANG_GUIGE" DataType="System.String"/>
+        <Column Name="BATCHNAME" DataType="System.String"/>
+        <Column Name="BIANHAO" DataType="System.String"/>
+        <Column Name="COA_DEPT_NAME" DataType="System.String"/>
+        <Column Name="COA_LOGO" DataType="System.String"/>
+        <Column Name="COA_TITLE" DataType="System.String"/>
+        <Column Name="CT_NUMBERS_CASE" DataType="System.String"/>
+        <Column Name="CT_PACKING" DataType="System.String"/>
+        <Column Name="CT_REPORT_IDENTITY" DataType="System.String"/>
+        <Column Name="CT_SMP_ENTRY_CODE" DataType="System.String"/>
+        <Column Name="CT_SMP_MAN_DATE" DataType="System.String"/>
+        <Column Name="CT_SMP_SORT" DataType="System.String"/>
+        <Column Name="CT_SMP_WORKSHOP_NAME" DataType="System.String"/>
+        <Column Name="DAIBIAOQUALITY" DataType="System.String"/>
+        <Column Name="DATA" DataType="System.String"/>
+        <Column Name="DEPT_NAME" DataType="System.String"/>
+        <Column Name="EXPIRY_DATE" DataType="System.String"/>
+        <Column Name="FENXI_HAO" DataType="System.String"/>
+        <Column Name="FUZEREN" DataType="System.Byte[]" BindableControl="Picture"/>
+        <Column Name="FUZEREN_1" DataType="System.String"/>
+        <Column Name="GUIFAN" DataType="System.String"/>
+        <Column Name="GUIGE" DataType="System.String"/>
+        <Column Name="ID" DataType="System.Decimal"/>
+        <Column Name="ID_NUMERIC" DataType="System.String"/>
+        <Column Name="IS_VISIBLE" DataType="System.String"/>
+        <Column Name="ITEM" DataType="System.String"/>
+        <Column Name="JIANYAN_DATE" DataType="System.String"/>
+        <Column Name="JIANYANYUAN" DataType="System.String"/>
+        <Column Name="JIELUN" DataType="System.String"/>
+        <Column Name="JY_BIANHAO" DataType="System.String"/>
+        <Column Name="KEEP_DATE" DataType="System.String"/>
+        <Column Name="MANUFACTURER" DataType="System.String"/>
+        <Column Name="ORDER_NUM" DataType="System.String"/>
+        <Column Name="PEIZHUN_ON" DataType="System.String"/>
+        <Column Name="PIZHUN_BY" DataType="System.String"/>
+        <Column Name="REPORT_BIANHAO" DataType="System.String"/>
+        <Column Name="REPORT_BY" DataType="System.String"/>
+        <Column Name="REPORT_ON" DataType="System.String"/>
+        <Column Name="REPORT_VERSION" DataType="System.String"/>
+        <Column Name="RESULT_UNIT" DataType="System.String"/>
+        <Column Name="SAMPNAME" DataType="System.String"/>
+        <Column Name="SMP_APPLY_DATE" DataType="System.String"/>
+        <Column Name="SMP_APPLY_DEPT" DataType="System.String"/>
+        <Column Name="SUPPLIER" DataType="System.String"/>
+        <Column Name="TEST_ACCORDING" DataType="System.String"/>
+        <Column Name="TEST_ACCORDING_EN" DataType="System.String"/>
+        <Column Name="TEST_NUMBER" DataType="System.String"/>
+        <Column Name="TRESULT" DataType="System.String"/>
+        <Column Name="VISIBLE_ID" DataType="System.String"/>
+        <Column Name="WEISHENGWU" DataType="System.String"/>
+        <Column Name="YAOLI" DataType="System.String"/>
+        <Column Name="YIQI" DataType="System.String"/>
+        <Column Name="ZHIJI" DataType="System.String"/>
+      </TableDataSource>
+    </OracleDataConnection>
+    <OracleDataConnection Name="Detail" ConnectionString="rijcmlqSd+jr55z0WGX/8xfqMfP95Ai9FQAU03F+onRebtbLXZLsEKzSPvlyyPsKmAIWB/OLM3A+cuXUyhsLoegkD9RrQ==">
+      <TableDataSource Name="VGSM_CRYSTAL_TEST_CHANPIN1" Alias="CRYSTAL_TEST_CHANPIN_DETAIL" DataType="System.Int32" Enabled="true" TableName="VGSM.&quot;CRYSTAL_TEST_CHANPIN&quot;">
+        <Column Name="SAMPNAME" Enabled="false" DataType="System.String"/>
+        <Column Name="BATCHNAME" Enabled="false" DataType="System.String"/>
+        <Column Name="TEST_ACCORDING" Enabled="false" DataType="System.String"/>
+        <Column Name="GUIGE" Enabled="false" DataType="System.String"/>
+        <Column Name="SMP_APPLY_DEPT" Enabled="false" DataType="System.String"/>
+        <Column Name="SMP_APPLY_DATE" Enabled="false" DataType="System.String"/>
+        <Column Name="DAIBIAOQUALITY" Enabled="false" DataType="System.String"/>
+        <Column Name="BAOGAO_DATE" Enabled="false" DataType="System.String"/>
+        <Column Name="ITEM" DataType="System.String"/>
+        <Column Name="GUIFAN" DataType="System.String"/>
+        <Column Name="DATA" DataType="System.String"/>
+        <Column Name="JIELUN" DataType="System.String"/>
+        <Column Name="JY_BIANHAO" Enabled="false" DataType="System.String"/>
+        <Column Name="CT_PACKING" Enabled="false" DataType="System.String"/>
+        <Column Name="FUZEREN_1" Enabled="false" DataType="System.String"/>
+        <Column Name="COA_DEPT_NAME" Enabled="false" DataType="System.String"/>
+        <Column Name="TRESULT" Enabled="false" DataType="System.String"/>
+        <Column Name="ANALYSIS_TYPE" DataType="System.String"/>
+        <Column Name="ORDER_NUM" DataType="System.String"/>
+        <Column Name="TEST_NUMBER" Enabled="false" DataType="System.String"/>
+        <Column Name="ID_NUMERIC" Enabled="false" DataType="System.String"/>
+        <Column Name="ID" Enabled="false" DataType="System.Decimal"/>
+        <Column Name="FUZEREN" Enabled="false" DataType="System.Byte[]" BindableControl="Picture"/>
+        <Column Name="COA_TITLE" Enabled="false" DataType="System.String"/>
+        <Column Name="COA_LOGO" Enabled="false" DataType="System.String"/>
+        <Column Name="KEEP_DATE" Enabled="false" DataType="System.String"/>
+        <Column Name="CT_SMP_ENTRY_CODE" Enabled="false" DataType="System.String"/>
+        <Column Name="SUPPLIER" Enabled="false" DataType="System.String"/>
+        <Column Name="MANUFACTURER" Enabled="false" DataType="System.String"/>
+        <Column Name="CT_NUMBERS_CASE" Enabled="false" DataType="System.String"/>
+        <Column Name="IS_VISIBLE" Enabled="false" DataType="System.String"/>
+        <Column Name="VISIBLE_ID" Enabled="false" DataType="System.String"/>
+        <Column Name="BIANHAO" Enabled="false" DataType="System.String"/>
+        <Column Name="DEPT_NAME" Enabled="false" DataType="System.String"/>
+        <Column Name="JIANYANYUAN" Enabled="false" DataType="System.String"/>
+        <Column Name="CT_SMP_MAN_DATE" Enabled="false" DataType="System.String"/>
+        <Column Name="EXPIRY_DATE" Enabled="false" DataType="System.String"/>
+        <Column Name="BAOZHUANG_GUIGE" Enabled="false" DataType="System.String"/>
+        <Column Name="JIANYAN_DATE" Enabled="false" DataType="System.String"/>
+        <Column Name="FENXI_HAO" Enabled="false" DataType="System.String"/>
+        <Column Name="REPORT_BIANHAO" Enabled="false" DataType="System.String"/>
+        <Column Name="REPORT_VERSION" Enabled="false" DataType="System.String"/>
+        <Column Name="REPORT_BY" Enabled="false" DataType="System.String"/>
+        <Column Name="PIZHUN_BY" Enabled="false" DataType="System.String"/>
+        <Column Name="REPORT_ON" Enabled="false" DataType="System.String"/>
+        <Column Name="PEIZHUN_ON" Enabled="false" DataType="System.String"/>
+        <Column Name="CT_SMP_WORKSHOP_NAME" Enabled="false" DataType="System.String"/>
+        <Column Name="ZHIJI" Enabled="false" DataType="System.String"/>
+        <Column Name="YIQI" Enabled="false" DataType="System.String"/>
+        <Column Name="WEISHENGWU" Enabled="false" DataType="System.String"/>
+        <Column Name="YAOLI" Enabled="false" DataType="System.String"/>
+        <Column Name="ANALYSIS_TYPE_ORDER" Enabled="false" DataType="System.Decimal"/>
+        <Column Name="CT_REPORT_IDENTITY" Enabled="false" DataType="System.String"/>
+        <Column Name="RESULT_UNIT" Enabled="false" DataType="System.String"/>
+        <Column Name="TEST_ACCORDING_EN" Enabled="false" DataType="System.String"/>
+        <Column Name="ANALYSIS_TYPE_EN" Enabled="false" DataType="System.String"/>
+        <Column Name="CT_SMP_SORT" Enabled="false" DataType="System.String"/>
+      </TableDataSource>
+    </OracleDataConnection>
+  </Dictionary>
+  <ReportPage Name="Page1" Watermark.Font="宋体, 60pt">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="56.7"/>
+    <PageHeaderBand Name="PageHeader1" Top="60.7" Width="718.2" Height="217.35">
+      <TextObject Name="Text2" Left="9.45" Top="189" Width="132.3" Height="18.9" Text="检验项目" Font="宋体, 9pt"/>
+      <TextObject Name="Text4" Left="189" Top="189" Width="179.55" Height="18.9" Text="标准规定" Font="宋体, 9pt"/>
+      <TextObject Name="Text6" Left="406.35" Top="189" Width="113.4" Height="18.9" Text="检验结果" Font="宋体, 9pt"/>
+      <TextObject Name="Text8" Left="538.65" Top="189" Width="113.4" Height="18.9" Text="结论" Font="宋体, 9pt"/>
+    </PageHeaderBand>
+    <GroupHeaderBand Name="GroupHeader1" Top="282.05" Width="718.2" Height="37.8" CanGrow="true" KeepWithData="true" Condition="[CRYSTAL_TEST_CHANPIN_DETAIL.ANALYSIS_TYPE]">
+      <TextObject Name="Text1" Width="94.5" Height="28.35" Text="[[CRYSTAL_TEST_CHANPIN_DETAIL.ANALYSIS_TYPE]]" Font="宋体, 9pt"/>
+      <DataBand Name="Data1" Top="323.85" Width="718.2" Height="37.8" DataSource="VGSM_CRYSTAL_TEST_CHANPIN1">
+        <TextObject Name="Text19" Width="94.5" Height="18.9" Text="[CRYSTAL_TEST_CHANPIN_DETAIL.ITEM]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+        <TextObject Name="Text20" Left="189" Width="94.5" Height="18.9" Text="[CRYSTAL_TEST_CHANPIN_DETAIL.GUIFAN]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+        <TextObject Name="Text21" Left="406.35" Width="94.5" Height="18.9" Text="[CRYSTAL_TEST_CHANPIN_DETAIL.DATA]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+        <TextObject Name="Text22" Left="538.65" Width="94.5" Height="18.9" Text="[CRYSTAL_TEST_CHANPIN_DETAIL.JIELUN]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+      </DataBand>
+      <GroupFooterBand Name="GroupFooter1" Top="365.65" Width="718.2" Height="37.8"/>
+    </GroupHeaderBand>
+    <ReportSummaryBand Name="ReportSummary1" Top="407.45" Width="718.2" Height="37.8"/>
+    <PageFooterBand Name="PageFooter1" Top="449.25" Width="718.2" Height="56.7">
+      <TextObject Name="Text18" Left="245.7" Top="28.35" Width="207.9" Height="18.9" Text="第[Page]页,共[TotalPages]页" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>
