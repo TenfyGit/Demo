@@ -10,7 +10,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ClientCredentialApi
+namespace ResourceApi
 {
     public class Startup
     {
@@ -41,6 +41,7 @@ namespace ClientCredentialApi
             {
                 app.UseDeveloperExceptionPage();
             }
+
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();

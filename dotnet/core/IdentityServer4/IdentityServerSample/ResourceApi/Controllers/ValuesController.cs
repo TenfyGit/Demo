@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
-namespace ClientCredentialApi.Controllers
+namespace ResourceApi.Controllers
 {
     [Authorize]
     [ApiController]

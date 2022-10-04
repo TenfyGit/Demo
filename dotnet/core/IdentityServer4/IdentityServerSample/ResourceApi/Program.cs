@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ClientCredentialApi
+namespace ResourceApi
 {
     /// <summary>
     /// µ÷ÊÔ½Å±¾£ºdotnet ClientCredentialApi.dll --urls=http://*:5001

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ClientCredentialApi.Controllers
+namespace ResourceApi.Controllers
 {
     [ApiController]
     [Route("[controller]")]
