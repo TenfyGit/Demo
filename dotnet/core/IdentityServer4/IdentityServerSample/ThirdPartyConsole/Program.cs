@@ -12,12 +12,25 @@ namespace ThirdPartyConsole
         {
             //1、访问认证中心获取token
             HttpClient httpClient= new HttpClient();
-            var tokenResponse = await httpClient.RequestClientCredentialsTokenAsync(new ClientCredentialsTokenRequest() { 
+            #region 客户端模式
+            //var tokenResponse = await httpClient.RequestClientCredentialsTokenAsync(new ClientCredentialsTokenRequest() { 
+            //    Address = "http://localhost:5000/connect/token",
+            //    ClientId = "ThirdPartyClient",
+            //    ClientSecret = "ThirdPartySecret",
+            //    GrantType = GrantTypes.ClientCredentials
+            //});
+            #endregion
+            #region 密码模式
+            var tokenResponse = await httpClient.RequestPasswordTokenAsync(new PasswordTokenRequest()
+            {
                 Address = "http://localhost:5000/connect/token",
                 ClientId = "ThirdPartyClient",
                 ClientSecret = "ThirdPartySecret",
-                GrantType = GrantTypes.ClientCredentials
+                GrantType = GrantTypes.Password,
+                UserName = "tenfy",
+                Password = "123456"
             });
+            #endregion
             if (tokenResponse.IsError)
             {
                 Console.WriteLine($"获取token失败，返回信息：{tokenResponse.ErrorDescription}");

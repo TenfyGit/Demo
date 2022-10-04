@@ -1,3 +1,4 @@
+using IdentityServerCenter.Configs;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -22,11 +23,21 @@ namespace IdentityServerCenter
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            #region 客户端模式
+            //services.AddIdentityServer()
+            //    .AddDeveloperSigningCredential() //添加临时证书，开发时用
+            //    .AddInMemoryApiResources(ClientCredentialConfig.GetApiResources())
+            //    .AddInMemoryClients(ClientCredentialConfig.GetClients())
+            //    .AddInMemoryApiScopes(ClientCredentialConfig.GetApiScopes());
+            #endregion
+            #region 密码认证模式
             services.AddIdentityServer()
                 .AddDeveloperSigningCredential() //添加临时证书，开发时用
-                .AddInMemoryApiResources(ClientCredentialConfig.GetApiResources())
-                .AddInMemoryClients(ClientCredentialConfig.GetClients())
-                .AddInMemoryApiScopes(ClientCredentialConfig.GetApiScopes());
+                .AddInMemoryApiResources(PwdCredentialConfig.GetApiResources())
+                .AddInMemoryClients(PwdCredentialConfig.GetClients())
+                .AddTestUsers(PwdCredentialConfig.GetTestUsers())
+                .AddInMemoryApiScopes(PwdCredentialConfig.GetApiScopes());
+            #endregion
             services.AddControllersWithViews();
         }
 

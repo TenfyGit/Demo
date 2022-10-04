@@ -1,7 +1,7 @@
 ﻿using IdentityServer4.Models;
 using System.Collections.Generic;
 
-namespace IdentityServerCenter
+namespace IdentityServerCenter.Configs
 {
     /// <summary>
     /// 客户端认证配置
@@ -14,8 +14,8 @@ namespace IdentityServerCenter
         /// <returns></returns>
         public static IEnumerable<ApiResource> GetApiResources()
         {
-            return new List<ApiResource>() { 
-                new ApiResource("ResourceApi","api资源"){ 
+            return new List<ApiResource>() {
+                new ApiResource("ResourceApi","api资源"){
                     Scopes = new List<string>(){
                         "scope1"
                     }
@@ -29,7 +29,7 @@ namespace IdentityServerCenter
         public static IEnumerable<Client> GetClients()
         {
             return new List<Client>() {
-                new Client(){ 
+                new Client(){
                     ClientId = "ThirdPartyClient",
                     AllowedGrantTypes = GrantTypes.ClientCredentials,
                     ClientSecrets = new List<Secret> {
